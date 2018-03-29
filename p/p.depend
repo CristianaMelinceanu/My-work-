@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1522344896 source:d:\info\sem2\lfa\p\main.cpp
+	<iostream>
+	<cstring>
+	<fstream>
+
