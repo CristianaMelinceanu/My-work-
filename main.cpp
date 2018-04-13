@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include <fstream>
+#include <vector>
+
 
 using namespace std;
 int col(char alfa[10],int c,char x)
@@ -11,10 +13,12 @@ int col(char alfa[10],int c,char x)
     return -1;
 }
 
+
 int main()
 {
-    ifstream f("l.in");
-    int q[10],i,m[10][10],n,c,j,tr,x,y,ini,fin[10];
+    ifstream f("lambdanfa.in");
+    vector <vector<int>> m[100];
+    int q[10],i,n,c,j,tr,x,y,ini,fin[10],dfa[15][15];
     char alfa[10],z,sir[30];
     f>>n;
     for(i=1;i<=n;i++)
@@ -22,7 +26,7 @@ int main()
     f>>c;
     for(i=0;i<=n;i++)
         for(j=0;j<=c;j++)
-            m[i][j]=-1;
+            m[i][j].push_back(-1);
     for(i=0;i<c;i++)
         f>>alfa[i];
     f>>tr;
@@ -31,7 +35,7 @@ int main()
         f>>x>>y>>z;
         j=col(alfa,c,z);
         if(j!=-1)
-            m[x][j]=y;
+            m[x][j].push_back(y);
     }
     for(i=0;i<=n;i++)
     {
@@ -47,7 +51,9 @@ int main()
     cin>>sir;
     int lsir=0;
     i=0;
-    if(strchr(sir,'*')!=NULL)
+    for(int i=0;i<n;i++)
+
+   /* if(strchr(sir,'*')!=NULL)
     {
         int j;
         for( j=1;j<=nrfin;j++)
@@ -94,7 +100,7 @@ int main()
 
         cout<<"Cuvantul nu apartine limbajului(nu a ajuns in starea finala)";
     }
-
+*/
 
 
 
